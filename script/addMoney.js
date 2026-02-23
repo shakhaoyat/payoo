@@ -25,6 +25,20 @@ document.getElementById("add-money-btn").addEventListener("click", function () {
             //4.1 true:: show aleart> set balance
             alert(`Money added successfully from ${bankAccount} at ${new Date()}`);
             setBalance(newBalance);
+
+            //1- history container ke dhore nia asbo
+            const history = document.getElementById("history-container");
+            //2-new div create korbo
+            const newHistory = document.createElement("div");
+
+            //3- new div a innerHTML add korbo
+            newHistory.innerHTML = `
+            <div class="transaction-card p-5 bg-base-100">
+                  Money added successfully from ${bankAccount} ,ACC-No ${accountNumber} at ${new Date()}
+                  </div>
+                  `;
+            //4- history container er vitore new div ta add korbo
+            history.append(newHistory);
       }
       else {
             //4.2 false:: show an error alert> return
